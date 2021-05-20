@@ -3,13 +3,13 @@ local colors = require('bogsterish.colors')
 local bogsterish = {}
 
 bogsterish.normal = {
-    a = { fg=colors.fg1  , bg=colors.base5, gui="bold" },
+    a = { fg=colors.fg1  , bg=colors.base3, gui="bold" },
     b = { fg=colors.fg1  , bg=colors.base2 },
     c = { fg=colors.fg1  , bg=colors.base1 }
 }
 
 bogsterish.visual = {
-    a = { fg=colors.base0, bg=colors.purple, gui="bold" },
+    a = { fg=colors.base0, bg=colors.light_teal, gui="bold" },
     b = { fg=colors.fg1  , bg=colors.base2 }
 }
 
