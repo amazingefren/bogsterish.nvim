@@ -5,7 +5,7 @@ local bogsterish = {}
 bogsterish.normal = {
     a = { fg=colors.base0, bg=colors.base5, gui="bold" },
     b = { fg=colors.fg1  , bg=colors.base2 },
-    c = { fg=colors.base0, bg=colors.red }
+    c = { fg=colors.base0, bg=colors.base2 }
 }
 
 bogsterish.insert = {
@@ -26,7 +26,7 @@ bogsterish.command = {
 bogsterish.inactive = {
     a = { fg=colors.base5, bg=colors.base0, gui="bold" },
     b = { fg=colors.base5, bg=colors.base0 },
-    c = { fg=colors.base5, bg=colors.red }
+    c = { fg=colors.base5, bg=colors.base2 }
 }
 
 return bogsterish
