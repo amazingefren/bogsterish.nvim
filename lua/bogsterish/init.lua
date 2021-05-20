@@ -13,12 +13,13 @@ local base7 = hsl(240, 15, 75)
 local base8 = hsl(267, 9, 80)
 local fg0 = hsl(26, 18, 73)
 local fg1 = hsl(32, 22, 87)
-local red = hsl(342, 65, 50)
+local fg2 = hsl(26, 18, 81)
+local red = hsl(344, 88, 61)
 local light_red = hsl(343, 65, 61)
-local orange = hsl(14, 65, 61)
-local yellow = hsl(43, 65, 61)
-local green = hsl(102, 65, 50)
-local light_green = hsl(103, 65, 61)
+local orange = hsl(32, 87, 61)
+local yellow = hsl(43, 70, 61)
+local green = hsl(111, 70, 61)
+local light_green = hsl(104, 75, 64)
 local blue = hsl(193, 65, 61)
 local light_blue = hsl(178, 65, 61)
 local purple = hsl(283, 65, 61)
@@ -27,7 +28,7 @@ local teal = hsl(163, 65, 50)
 local light_teal = hsl(163 ,65 ,61)
 
 local styles={
-    bold="bold",
+    bold="",
     curly="undercurl",
     underline="underline",
     strike="strikethrough",
@@ -70,16 +71,16 @@ local theme = lush(function()
     ModeMsg      { fg=fg0, gui=styles.bold }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea      { fg=fg0 }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    MoreMsg      { fg=fg0 }, -- |more-prompt|
+    MoreMsg      { ModeMsg }, -- |more-prompt|
     NonText      { fg=base3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       { fg=fg1, bg=base0 }, -- normal text
+    Normal       { fg=fg2, bg=base0 }, -- normal text
     NormalFloat  { Normal }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
     Pmenu        { fg=fg0, bg=base1 }, -- Popup menu: normal item.
     PmenuSel     { fg=fg0, bg=base2, gui=styles.bold }, -- Popup menu: selected item.
     PmenuSbar    { bg=base2 }, -- Popup menu: scrollbar.
     PmenuThumb   { bg=base2 }, -- Popup menu: Thumb of the scrollbar.
-    Question     { fg=fg0 }, -- |hit-enter| prompt and yes/no questions
+    Question     { fg=fg0, gui=styles.bold }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine { fg=base0, bg=yellow, gui=styles.bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search       { fg=base0, bg=fg1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SpecialKey   { fg=base3 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -92,10 +93,10 @@ local theme = lush(function()
     TabLine      { StatusLineNC }, -- tab pages line, not active tab page label
     TabLineFill  { StatusLineNC }, -- tab pages line, where there are no labels
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
-    Title        { fg=fg0 }, -- titles for output from ":set all", ":autocmd" etc.
+    Title        { fg=fg1, gui=styles.bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual       { bg=base1, gui=styles.inverse}, -- Visual mode selection --- TODO: check for base fg visibility
     VisualNOS    { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg   { fg=orange, bg=base1 }, -- warning messages
+    WarningMsg   { fg=orange, bg=base1, gui=styles.bold }, -- warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu     { fg=blue, bg=base1, gui=styles.bold}, -- current match in 'wildmenu' completion
 
@@ -107,7 +108,7 @@ local theme = lush(function()
     Float          { Number }, --    a floating point constant: 2.3e10
 
     Identifier     { fg=light_red }, -- (preferred) any variable name
-    Function       { fg=light_blue }, -- function name (also: methods for classes)
+    Function       { fg=light_blue, gui=styles.bold }, -- function name (also: methods for classes)
 
     Statement      { fg=yellow }, -- (preferred) any statement
     Conditional    { Statement }, --  if, then, else, endif, switch, etc.
@@ -117,7 +118,7 @@ local theme = lush(function()
     Keyword        { fg=yellow }, --  any other keyword
     Exception      { Statement }, --  try, catch, throw
 
-    PreProc        { fg=orange }, -- (preferred) generic Preprocessor
+    PreProc        { fg=fg0 }, -- (preferred) generic Preprocessor
     Include        { Statement }, --  preprocessor #include
     Define         { PreProc }, --   preprocessor #define
     Macro          { PreProc }, --    same as Define
@@ -130,7 +131,7 @@ local theme = lush(function()
 
     Special        { fg=light_green }, -- (preferred) any special symbol
     SpecialChar    { Special }, --  special character in a constant
-    Tag            { Special }, --    you can use CTRL-] on this
+    Tag            { Title  }, --    you can use CTRL-] on this
     Delimiter      { fg=fg1 }, --  character that needs attention
     SpecialComment { fg=fg1 }, -- special things inside a comment
     Debug          { Special }, --    debugging statements
@@ -142,9 +143,9 @@ local theme = lush(function()
     -- ("Ignore", below, may be invisible...)
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-    Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
+    Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
 
-    Todo           { fg=fg0, bg=base0}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo           { fg=fg0, bg=base0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     LspError    {fg=red},
     LspWarning  {fg=orange},
@@ -223,7 +224,7 @@ local theme = lush(function()
     TSVariableBuiltin    { Special };    -- Variable names that are defined by the languages, like `this` or `self`.
 
     TSTag                { Operator };    -- Tags like html tag names.
-    TSTagDelimiter       { Special };    -- Tag delimiter like `<` `>` `/`
+    TSTagDelimiter       { Tag };    -- Tag delimiter like `<` `>` `/`
     TSText               { TSNone };    -- For strings considered text in a markup language.
     TSEmphasis           { gui="italic" };    -- For text to be represented with emphasis.
     TSUnderline          { gui=styles.curly };    -- For text to be represented with an underline.
