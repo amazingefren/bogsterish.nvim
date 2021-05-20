@@ -1,26 +1,26 @@
-local colors = require('bogsterish')
+local colors = require('bogsterish.colors')
 
 local bogsterish = {}
 
 bogsterish.normal = {
     a = { fg=colors.base0, bg=colors.base5, gui="bold" },
-    b = { fg=colors.fg1, bg=colors.base2 },
+    b = { fg=colors.fg1  , bg=colors.base2 },
     c = { fg=colors.base0, bg=colors.red }
 }
 
 bogsterish.insert = {
     a = { fg=colors.base0, bg=colors.green, gui="bold" },
-    b = { fg=colors.fg1, bg=colors.base2 }
+    b = { fg=colors.fg1  , bg=colors.base2 }
 }
 
 bogsterish.replace = {
     a = { fg=colors.base0, bg=colors.red, gui="bold" },
-    b = { fg=colors.fg1, bg=colors.base2 }
+    b = { fg=colors.fg1  , bg=colors.base2 }
 }
 
 bogsterish.command = {
     a = { fg=colors.base0, bg=colors.yellow, gui="bold" },
-    b = { fg=colors.fg1, bg=colors.base2 }
+    b = { fg=colors.fg1  , bg=colors.base2 }
 }
 
 bogsterish.inactive = {
