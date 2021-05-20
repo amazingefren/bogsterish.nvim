@@ -15,8 +15,8 @@ local fg0 = hsl(26, 18, 73)
 local fg1 = hsl(32, 22, 87)
 local red = hsl(342, 65, 50)
 local light_red = hsl(343, 65, 61)
-local orange = hsl(14, 65, 61)
-local yellow = hsl(43, 65, 61)
+local orange = hsl(20, 70, 61)
+local yellow = hsl(43, 70, 61)
 local green = hsl(102, 65, 50)
 local light_green = hsl(103, 65, 61)
 local blue = hsl(193, 65, 61)
@@ -223,7 +223,7 @@ local theme = lush(function()
     TSVariableBuiltin    { Special };    -- Variable names that are defined by the languages, like `this` or `self`.
 
     TSTag                { Operator };    -- Tags like html tag names.
-    TSTagDelimiter       { Special };    -- Tag delimiter like `<` `>` `/`
+    TSTagDelimiter       { Delimiter };    -- Tag delimiter like `<` `>` `/`
     TSText               { TSNone };    -- For strings considered text in a markup language.
     TSEmphasis           { gui="italic" };    -- For text to be represented with emphasis.
     TSUnderline          { gui=styles.curly };    -- For text to be represented with an underline.
