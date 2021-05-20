@@ -15,7 +15,7 @@ local fg0 = hsl(26, 18, 73)
 local fg1 = hsl(32, 22, 87)
 local red = hsl(344, 88, 61)
 local light_red = hsl(343, 65, 61)
-local orange = hsl(20, 70, 61)
+local orange = hsl(32, 87, 61)
 local yellow = hsl(43, 70, 61)
 local green = hsl(111, 70, 61)
 local light_green = hsl(104, 75, 64)
@@ -114,7 +114,7 @@ local theme = lush(function()
     Repeat         { fg=orange }, --   for, do, while, etc.
     Label          { fg=light_blue }, --    case, default, etc.
     Operator       { fg=orange }, -- "sizeof", "+", "*", etc.
-    Keyword        { fg=yellow }, --  any other keyword
+    Keyword        { fg=yellow, gui=styles.bold }, --  any other keyword
     Exception      { Statement }, --  try, catch, throw
 
     PreProc        { fg=orange }, -- (preferred) generic Preprocessor
