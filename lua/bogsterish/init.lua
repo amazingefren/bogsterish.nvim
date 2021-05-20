@@ -222,7 +222,7 @@ local theme = lush(function()
     TSVariable           { Special };    -- Any variable name that does not have another highlight.
     TSVariableBuiltin    { Special };    -- Variable names that are defined by the languages, like `this` or `self`.
 
-    TSTag                { Operator };    -- Tags like html tag names.
+    TSTag                { PreProc };    -- Tags like html tag names.
     TSTagDelimiter       { Title };    -- Tag delimiter like `<` `>` `/`
     TSText               { TSNone };    -- For strings considered text in a markup language.
     TSEmphasis           { gui="italic" };    -- For text to be represented with emphasis.
