@@ -13,7 +13,7 @@ local base7 = hsl(240, 15, 75)
 local base8 = hsl(267, 9, 80)
 local fg0 = hsl(26, 18, 73)
 local fg1 = hsl(32, 22, 87)
-local red = hsl(342, 65, 50)
+local red = hsl(344, 88, 60)
 local light_red = hsl(343, 65, 61)
 local orange = hsl(20, 70, 61)
 local yellow = hsl(43, 70, 61)
@@ -113,7 +113,7 @@ local theme = lush(function()
     Conditional    { Statement }, --  if, then, else, endif, switch, etc.
     Repeat         { fg=orange }, --   for, do, while, etc.
     Label          { fg=light_blue }, --    case, default, etc.
-    Operator       { fg=orange }, -- "sizeof", "+", "*", etc.
+    Operator       { fg=orange, gui=styles.bold }, -- "sizeof", "+", "*", etc.
     Keyword        { fg=yellow }, --  any other keyword
     Exception      { Statement }, --  try, catch, throw
 
