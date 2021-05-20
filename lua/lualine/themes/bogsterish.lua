@@ -3,7 +3,7 @@ local colors = require('bogsterish.colors')
 local bogsterish = {}
 
 bogsterish.normal = {
-    a = { fg=colors.fg1  , bg=colors.base3 },
+    a = { fg=colors.fg0  , bg=colors.base3, gui="bold" },
     b = { fg=colors.fg1  , bg=colors.base2 },
     c = { fg=colors.fg1  , bg=colors.base1 }
 }
