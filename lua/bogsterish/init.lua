@@ -14,6 +14,7 @@ local base8 = hsl(267, 9, 80)
 local fg0 = hsl(26, 18, 73)
 local fg1 = hsl(32, 22, 87)
 local fg2 = hsl(26, 18, 81)
+local fg3 = hsl(26, 18, 64)
 local red = hsl(344, 88, 61)
 local light_red = hsl(343, 65, 61)
 local orange = hsl(32, 87, 61)
@@ -45,7 +46,7 @@ local theme = lush(function()
     Comment      { fg=base5 }, -- any comment
     ColorColumn  { bg=base0}, -- used for the columns set with 'colorcolumn'
     Conceal      { fg=blue }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor       { gui="inverse" }, -- character under the cursor
+    Cursor       { fg=light_blue, gui=styles.vnverse }, -- character under the cursor
     lCursor      { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM     { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg=base1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -55,7 +56,7 @@ local theme = lush(function()
     DiffChange   { bg=base0, fg=yellow}, -- diff mode: Changed line |diff.txt|
     DiffDelete   { bg=base0, fg=light_red }, -- diff mode: Deleted line |diff.txt|
     DiffText     { fg=fg0 }, -- diff mode: Changed text within a changed line |diff.txt|
-    -- EndOfBuffer  { }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    EndOfBuffer  { fg=base0 }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { gui="inverse" }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
     ErrorMsg     { bg=base1, fg=light_red, gui=styles.bold }, -- error messages on the command line
@@ -66,7 +67,7 @@ local theme = lush(function()
     IncSearch    { fg=base0, bg=fg1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute   { IncSearch }, -- |:substitute| replacement text highlighting
     LineNr       { fg=base3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { fg=light_blue}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr { fg=yellow}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen   { bg=base3, gui=styles.bold }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg      { fg=fg0, gui=styles.bold }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea      { fg=fg0 }, -- Area for messages and cmdline
@@ -94,7 +95,7 @@ local theme = lush(function()
     TabLineFill  { StatusLineNC }, -- tab pages line, where there are no labels
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
     Title        { fg=fg1, gui=styles.bold }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg=base1, gui=styles.inverse}, -- Visual mode selection --- TODO: check for base fg visibility
+    Visual       { fg=base8, bg=base1, gui=nil }, -- Visual mode selection --- TODO: check for base fg visibility
     VisualNOS    { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { fg=orange, bg=base1, gui=styles.bold }, -- warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -232,6 +233,16 @@ local theme = lush(function()
     TSTitle              { Title };    -- Text that is part of a title.
     TSLiteral            { String };    -- Literal text.
     TSURI                { Underlined };    -- Any URI like a link or email.
+
+    -- Telescope 
+    TelescopePromptBorder       {fg=blue};
+    TelescopeResultsBorder      {fg=teal};
+    TelescopePreviewBorder      {fg=fg0};
+    TelescopeSelectionCaret     {fg=base5};
+    TelescopeSelection          {bg=base1, fg=fg1};
+    TelescopeMatching           {fg=red};
+    TelescopeNormal             {fg=base5, bg=base0};
+    TelescopeMultiSelection     {fg=base5}
 
   }
 end)
