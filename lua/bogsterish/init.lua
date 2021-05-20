@@ -67,7 +67,7 @@ local theme = lush(function()
     IncSearch    { fg=base0, bg=fg1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute   { IncSearch }, -- |:substitute| replacement text highlighting
     LineNr       { fg=base3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { fg=light_blue}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr { fg=yellow}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen   { bg=base3, gui=styles.bold }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg      { fg=fg0, gui=styles.bold }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea      { fg=fg0 }, -- Area for messages and cmdline
