@@ -13,6 +13,7 @@ local base7 = hsl(240, 15, 75)
 local base8 = hsl(267, 9, 80)
 local fg0 = hsl(26, 18, 73)
 local fg1 = hsl(32, 22, 87)
+local fg2 = hsl(26, 18, 81)
 local red = hsl(344, 88, 61)
 local light_red = hsl(343, 65, 61)
 local orange = hsl(32, 87, 61)
@@ -72,7 +73,7 @@ local theme = lush(function()
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg      { ModeMsg }, -- |more-prompt|
     NonText      { fg=base3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       { fg=fg0, bg=base0 }, -- normal text
+    Normal       { fg=fg2, bg=base0 }, -- normal text
     NormalFloat  { Normal }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
     Pmenu        { fg=fg0, bg=base1 }, -- Popup menu: normal item.
