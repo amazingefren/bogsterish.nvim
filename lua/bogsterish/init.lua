@@ -27,7 +27,7 @@ local teal = hsl(163, 65, 50)
 local light_teal = hsl(163 ,65 ,61)
 
 local styles={
-    bold="bold",
+    bold="",
     curly="undercurl",
     underline="underline",
     strike="strikethrough",
@@ -114,7 +114,7 @@ local theme = lush(function()
     Repeat         { fg=orange }, --   for, do, while, etc.
     Label          { fg=light_blue }, --    case, default, etc.
     Operator       { fg=orange }, -- "sizeof", "+", "*", etc.
-    Keyword        { fg=yellow, gui=styles.bold }, --  any other keyword
+    Keyword        { fg=yellow }, --  any other keyword
     Exception      { Statement }, --  try, catch, throw
 
     PreProc        { fg=orange }, -- (preferred) generic Preprocessor
