@@ -1,5 +1,30 @@
 local hsl = require'lush'.hsl
 
+local lua_colors = {
+    -- Base Colors
+    red = "#ED5E84", -- tweaked
+    light_red = "#DC5B80",
+    orange = "#F2A145",
+    yellow = "#E1BA56",
+    green = "#6BE156",
+    light_green = "#83E85E",
+    blue = "#5BC0DC",
+    light_blue = "#5BDCD8",
+    purple = "#B85BDC",
+    pink = "#DC5BC0",
+    teal = "#2DD2A3",
+    light_teal = "#5BDCB8",
+    -- Highlight
+    bg = "#161C23", --base0
+    base2 = "#313F4E", -- base2 need to rename
+    linenr = "#415368", -- base3
+    fg = "#E5DED7", --fg1
+    fg_alt = "#C7B8AE", --fg0
+    comment = "#627D9D", -- base5
+    visual = "#232E38", --base1
+
+}
+
 local colors = {
     base0 = hsl(212, 23, 11),
     base1 = hsl(211, 23, 18),
@@ -27,4 +52,4 @@ local colors = {
     light_teal = hsl(163 ,65 ,61)
 }
 
-return colors
+return colors, lua_colors
