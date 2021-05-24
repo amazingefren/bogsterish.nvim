@@ -12,3 +12,6 @@ Package Manger
 ```
 + use {'amazingefren/bogsterish', branch = 'lush', requires='rktjmp/lush.nvim'}
 ```
+
+## Extras
+Extra Theme Files Found [HERE](https://github.com/amazingefren/bogsterish-extra)
