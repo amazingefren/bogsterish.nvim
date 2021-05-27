@@ -18,7 +18,7 @@ local fg3 = hsl(26, 18, 64)
 local red = hsl(344, 88, 61)
 local light_red = hsl(343, 65, 61)
 local orange = hsl(32, 87, 61)
-local yellow = hsl(43, 70, 61)
+local yellow = hsl(50, 80, 60)
 local green = hsl(111, 70, 61)
 local light_green = hsl(104, 75, 64)
 local blue = hsl(193, 65, 61)
@@ -29,7 +29,7 @@ local teal = hsl(163, 65, 50)
 local light_teal = hsl(163 ,65 ,61)
 
 local styles={
-    bold="",
+    bold="bold",
     curly="undercurl",
     underline="underline",
     strike="strikethrough",
@@ -44,9 +44,9 @@ local styles={
 local theme = lush(function()
   return {
     Comment      { fg=base5 }, -- any comment
-    ColorColumn  { bg=base0}, -- used for the columns set with 'colorcolumn'
+    ColorColumn  { bg=base2}, -- used for the columns set with 'colorcolumn'
     Conceal      { fg=blue }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor       { fg=light_blue, gui=styles.vnverse }, -- character under the cursor
+    Cursor       { fg=light_blue, gui=styles.inverse }, -- character under the cursor
     lCursor      { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM     { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg=base1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -68,13 +68,13 @@ local theme = lush(function()
     Substitute   { IncSearch }, -- |:substitute| replacement text highlighting
     LineNr       { fg=base3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg=yellow}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen   { bg=base3, gui=styles.bold }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen   { fg=red, gui=styles.bold }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg      { fg=fg0, gui=styles.bold }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea      { fg=fg0 }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg      { ModeMsg }, -- |more-prompt|
     NonText      { fg=base3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       { fg=fg2, bg=base0 }, -- normal text
+    Normal       { fg=fg1, bg=base0 }, -- normal text
     NormalFloat  { Normal }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
     Pmenu        { fg=fg0, bg=base1 }, -- Popup menu: normal item.
@@ -95,7 +95,7 @@ local theme = lush(function()
     TabLineFill  { StatusLineNC }, -- tab pages line, where there are no labels
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
     Title        { fg=fg1, gui=styles.bold }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual       { fg=base8, bg=base1, gui=nil }, -- Visual mode selection --- TODO: check for base fg visibility
+    Visual       { bg=base2 }, -- Visual mode selection --- TODO: check for base fg visibility
     VisualNOS    { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { fg=orange, bg=base1, gui=styles.bold }, -- warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -108,10 +108,10 @@ local theme = lush(function()
     Boolean        { Constant }, --  a boolean constant: TRUE, false
     Float          { Number }, --    a floating point constant: 2.3e10
 
-    Identifier     { fg=light_red }, -- (preferred) any variable name
-    Function       { fg=light_blue, gui=styles.bold }, -- function name (also: methods for classes)
+    Identifier     { fg=fg1 }, -- (preferred) any variable name
+    Function       { fg=light_blue }, -- function name (also: methods for classes)
 
-    Statement      { fg=yellow }, -- (preferred) any statement
+    Statement      { fg=orange }, -- (preferred) any statement
     Conditional    { Statement }, --  if, then, else, endif, switch, etc.
     Repeat         { fg=orange }, --   for, do, while, etc.
     Label          { fg=light_blue }, --    case, default, etc.
@@ -130,10 +130,10 @@ local theme = lush(function()
     Structure      { Statement }, --  struct, union, enum, etc.
     Typedef        { fg=yellow }, --  A typedef
 
-    Special        { fg=light_green }, -- (preferred) any special symbol
+    Special        { fg=green }, -- (preferred) any special symbol
     SpecialChar    { Special }, --  special character in a constant
-    Tag            { Title  }, --    you can use CTRL-] on this
-    Delimiter      { fg=fg1 }, --  character that needs attention
+    Tag            { fg=fg3  }, --    you can use CTRL-] on this
+    Delimiter      { fg=fg3 }, --  character that needs attention
     SpecialComment { fg=fg1 }, -- special things inside a comment
     Debug          { Special }, --    debugging statements
 
@@ -194,7 +194,7 @@ local theme = lush(function()
     TSConstMacro         { Define };    -- For constants that are defined by macros: `NULL` in C.
     TSError              { Error };    -- For syntax/parser errors.
     TSException          { Exception };    -- For exception related keywords.
-    TSField              { Identifier };    -- For fields.
+    TSField              { fg=red };    -- For fields.
     TSFloat              { Float };    -- For floats.
     TSFunction           { Function };    -- For function (calls and definitions).
     TSFuncBuiltin        { Special };    -- For builtin functions: `table.insert` in Lua.
@@ -210,10 +210,10 @@ local theme = lush(function()
     TSOperator           { Operator };    -- For any operator: `+`, but also `->` and `*` in C.
     TSParameter          { Identifier };    -- For parameters of a function.
     TSParameterReference { TSParameter };    -- For references to parameters of a function.
-    TSProperty           { Identifier };    -- Same as `TSField`.
+    TSProperty           { TSField };    -- Same as `TSField`.
     TSPunctDelimiter     { Delimiter };    -- For delimiters ie: `.`
-    TSPunctBracket       { Delimiter };    -- For brackets and parens.
-    TSPunctSpecial       { Delimiter };    -- For special punctutation that does not fall in the catagories before.
+    TSPunctBracket       { fg=orange };    -- For brackets and parens.
+    TSPunctSpecial       { fg=orange };    -- For special punctutation that does not fall in the catagories before.
     TSRepeat             { Repeat };    -- For keywords related to loops.
     TSString             { String };    -- For strings.
     TSStringRegex        { String };    -- For regexes.
@@ -224,7 +224,7 @@ local theme = lush(function()
     TSVariable           { Special };    -- Any variable name that does not have another highlight.
     TSVariableBuiltin    { Special };    -- Variable names that are defined by the languages, like `this` or `self`.
 
-    TSTag                { Operator };    -- Tags like html tag names.
+    TSTag                { fg=blue };    -- Tags like html tag names.
     TSTagDelimiter       { Tag };    -- Tag delimiter like `<` `>` `/`
     TSText               { TSNone };    -- For strings considered text in a markup language.
     TSEmphasis           { gui="italic" };    -- For text to be represented with emphasis.
