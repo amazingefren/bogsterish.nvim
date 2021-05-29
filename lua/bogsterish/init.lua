@@ -97,7 +97,7 @@ local theme = lush(function()
     Title        { fg=fg1, gui=styles.bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual       { bg=base2 }, -- Visual mode selection --- TODO: check for base fg visibility
     VisualNOS    { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg   { fg=orange, bg=base1, gui=styles.bold }, -- warning messages
+    WarningMsg   { fg=orange, bg=base1}, -- warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu     { fg=blue, bg=base1, gui=styles.bold}, -- current match in 'wildmenu' completion
 
@@ -144,7 +144,8 @@ local theme = lush(function()
     -- ("Ignore", below, may be invisible...)
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-    Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
+    -- Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
+    Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
 
     Todo           { fg=fg0, bg=base0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
