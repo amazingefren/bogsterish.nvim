@@ -75,7 +75,7 @@ local theme = lush(function()
     MoreMsg      { ModeMsg }, -- |more-prompt|
     NonText      { fg=base3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal       { fg=fg1, bg=base0 }, -- normal text
-    NormalFloat  { Normal }, -- Normal text in floating windows.
+    NormalFloat  { fg=fg1, bg=base2 }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
     Pmenu        { fg=fg0, bg=base1 }, -- Popup menu: normal item.
     PmenuSel     { fg=fg0, bg=base2, gui=styles.bold }, -- Popup menu: selected item.
