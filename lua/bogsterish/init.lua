@@ -23,7 +23,7 @@ local green = hsl(111, 70, 61)
 local light_green = hsl(104, 75, 64)
 local blue = hsl(193, 65, 61)
 local light_blue = hsl(178, 65, 61)
-local purple = hsl(283, 65, 61)
+local purple = hsl(285, 73, 64)
 local pink = hsl(313, 65, 61)
 local teal = hsl(163, 65, 50)
 local light_teal = hsl(163 ,65 ,61)
@@ -75,9 +75,9 @@ local theme = lush(function()
     MoreMsg      { ModeMsg }, -- |more-prompt|
     NonText      { fg=base3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal       { fg=fg1, bg=base0 }, -- normal text
-    NormalFloat  { Normal }, -- Normal text in floating windows.
+    NormalFloat  { fg=fg1, bg=base2 }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
-    Pmenu        { fg=fg0, bg=base1 }, -- Popup menu: normal item.
+    Pmenu        { fg=fg3, bg=base1 }, -- Popup menu: normal item.
     PmenuSel     { fg=fg0, bg=base2, gui=styles.bold }, -- Popup menu: selected item.
     PmenuSbar    { bg=base2 }, -- Popup menu: scrollbar.
     PmenuThumb   { bg=base2 }, -- Popup menu: Thumb of the scrollbar.
@@ -97,7 +97,7 @@ local theme = lush(function()
     Title        { fg=fg1, gui=styles.bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual       { bg=base2 }, -- Visual mode selection --- TODO: check for base fg visibility
     VisualNOS    { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg   { fg=orange, bg=base1, gui=styles.bold }, -- warning messages
+    WarningMsg   { fg=orange, bg=base1}, -- warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu     { fg=blue, bg=base1, gui=styles.bold}, -- current match in 'wildmenu' completion
 
@@ -144,7 +144,8 @@ local theme = lush(function()
     -- ("Ignore", below, may be invisible...)
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-    Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
+    -- Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
+    Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
 
     Todo           { fg=fg0, bg=base0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
