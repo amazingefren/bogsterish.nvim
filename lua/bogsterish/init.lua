@@ -145,7 +145,7 @@ local theme = lush(function()
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
     -- Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
-    Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
+    -- Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
 
     Todo           { fg=fg0, bg=base0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
@@ -163,15 +163,15 @@ local theme = lush(function()
     LspDiagnosticsDefaultInformation     { bg=light_blue, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultHint            { bg=teal, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
 
-    --[[ LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
+    LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
     LspDiagnosticsVirtualTextWarning     { LspWarning }, -- Used for "Warning" diagnostic virtual text
     LspDiagnosticsVirtualTextInformation { LspInfo }, -- Used for "Information" diagnostic virtual text
-    LspDiagnosticsVirtualTextHint        { LspHint }, -- Used for "Hint" diagnostic virtual text ]]
+    LspDiagnosticsVirtualTextHint        { LspHint }, -- Used for "Hint" diagnostic virtual text
 
-    --[[ LspDiagnosticsUnderlineError         { Error }, -- Used to underline "Error" diagnostics
+    LspDiagnosticsUnderlineError         { Error }, -- Used to underline "Error" diagnostics
     LspDiagnosticsUnderlineWarning       { sp=orange, gui=styles.curly }, -- Used to underline "Warning" diagnostics
     LspDiagnosticsUnderlineInformation   { sp=light_blue, gui=styles.curly }, -- Used to underline "Information" diagnostics
-    LspDiagnosticsUnderlineHint          { sp=teal, gui=styles.curly }, -- Used to underline "Hint" diagnostics ]]
+    LspDiagnosticsUnderlineHint          { sp=teal, gui=styles.curly }, -- Used to underline "Hint" diagnostics
 
     LspDiagnosticsFloatingError          { LspError, bg=base1 }, -- Used to color "Error" diagnostic messages in diagnostics float
     LspDiagnosticsFloatingWarning        { LspWarning, bg=base1 }, -- Used to color "Warning" diagnostic messages in diagnostics float
