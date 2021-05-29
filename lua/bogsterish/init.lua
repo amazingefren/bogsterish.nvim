@@ -77,7 +77,7 @@ local theme = lush(function()
     Normal       { fg=fg1, bg=base0 }, -- normal text
     NormalFloat  { fg=fg1, bg=base2 }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
-    Pmenu        { fg=fg0, bg=base1 }, -- Popup menu: normal item.
+    Pmenu        { fg=fg3, bg=base1 }, -- Popup menu: normal item.
     PmenuSel     { fg=fg0, bg=base2, gui=styles.bold }, -- Popup menu: selected item.
     PmenuSbar    { bg=base2 }, -- Popup menu: scrollbar.
     PmenuThumb   { bg=base2 }, -- Popup menu: Thumb of the scrollbar.
