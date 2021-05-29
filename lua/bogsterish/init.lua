@@ -233,7 +233,7 @@ local theme = lush(function()
     TSStrike             { gui="strikethrough" };    -- For strikethrough text.
     TSTitle              { Title };    -- Text that is part of a title.
     TSLiteral            { String };    -- Literal text.
-    TSURI                { Underlined };    -- Any URI like a link or email.
+    TSURI                { gui=styles.curly };    -- Any URI like a link or email.
 
     -- Telescope 
     TelescopePromptBorder       {fg=blue};
