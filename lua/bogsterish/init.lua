@@ -85,10 +85,10 @@ local theme = lush(function()
     QuickFixLine { fg=base0, bg=yellow, gui=styles.bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search       { fg=base0, bg=fg1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SpecialKey   { fg=base3 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad     { sp=red, gui=styles.curly }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
+    SpellBad     { sp=red, gui=styles.curly }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    -- SpellRare    { sp=purple, gui=styles.curly }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellRare    { sp=purple, gui=styles.curly }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine   { fg=fg0, bg=base1 }, -- status line of current window
     StatusLineNC { fg=base3, bg=base1 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine      { StatusLineNC }, -- tab pages line, not active tab page label
@@ -137,7 +137,7 @@ local theme = lush(function()
     SpecialComment { fg=fg1 }, -- special things inside a comment
     Debug          { Special }, --    debugging statements
 
-    -- Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
+    Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
     Bold       { gui = "bold" },
     Italic     { gui = "italic" },
 
@@ -145,7 +145,7 @@ local theme = lush(function()
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
     -- Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
-    Error          { fg=red }, -- (preferred) any erroneous construct
+    Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
 
     Todo           { fg=fg0, bg=base0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
@@ -163,15 +163,15 @@ local theme = lush(function()
     LspDiagnosticsDefaultInformation     { bg=light_blue, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultHint            { bg=teal, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
 
-    -- LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
-    -- LspDiagnosticsVirtualTextWarning     { LspWarning }, -- Used for "Warning" diagnostic virtual text
-    -- LspDiagnosticsVirtualTextInformation { LspInfo }, -- Used for "Information" diagnostic virtual text
-    -- LspDiagnosticsVirtualTextHint        { LspHint }, -- Used for "Hint" diagnostic virtual text
+    LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
+    LspDiagnosticsVirtualTextWarning     { LspWarning }, -- Used for "Warning" diagnostic virtual text
+    LspDiagnosticsVirtualTextInformation { LspInfo }, -- Used for "Information" diagnostic virtual text
+    LspDiagnosticsVirtualTextHint        { LspHint }, -- Used for "Hint" diagnostic virtual text
 
-    -- LspDiagnosticsUnderlineError         { Error }, -- Used to underline "Error" diagnostics
-    -- LspDiagnosticsUnderlineWarning       { sp=orange, gui=styles.curly }, -- Used to underline "Warning" diagnostics
-    -- LspDiagnosticsUnderlineInformation   { sp=light_blue, gui=styles.curly }, -- Used to underline "Information" diagnostics
-    -- LspDiagnosticsUnderlineHint          { sp=teal, gui=styles.curly }, -- Used to underline "Hint" diagnostics
+    --[[ LspDiagnosticsUnderlineError         { Error }, -- Used to underline "Error" diagnostics
+    LspDiagnosticsUnderlineWarning       { sp=orange, gui=styles.curly }, -- Used to underline "Warning" diagnostics
+    LspDiagnosticsUnderlineInformation   { sp=light_blue, gui=styles.curly }, -- Used to underline "Information" diagnostics
+    LspDiagnosticsUnderlineHint          { sp=teal, gui=styles.curly }, -- Used to underline "Hint" diagnostics ]]
 
     LspDiagnosticsFloatingError          { LspError, bg=base1 }, -- Used to color "Error" diagnostic messages in diagnostics float
     LspDiagnosticsFloatingWarning        { LspWarning, bg=base1 }, -- Used to color "Warning" diagnostic messages in diagnostics float
@@ -229,11 +229,11 @@ local theme = lush(function()
     TSTagDelimiter       { Tag };    -- Tag delimiter like `<` `>` `/`
     TSText               { TSNone };    -- For strings considered text in a markup language.
     TSEmphasis           { gui="italic" };    -- For text to be represented with emphasis.
-    -- TSUnderline          { gui=styles.curly };    -- For text to be represented with an underline.
+    TSUnderline          { gui=styles.curly };    -- For text to be represented with an underline.
     TSStrike             { gui="strikethrough" };    -- For strikethrough text.
     TSTitle              { Title };    -- Text that is part of a title.
     TSLiteral            { String };    -- Literal text.
-    TSURI                { gui=styles.curly };    -- Any URI like a link or email.
+    TSURI                { Underlined };    -- Any URI like a link or email.
 
     -- Telescope 
     TelescopePromptBorder       {fg=blue};
