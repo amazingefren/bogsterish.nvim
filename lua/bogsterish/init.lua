@@ -163,10 +163,10 @@ local theme = lush(function()
     LspDiagnosticsDefaultInformation     { bg=light_blue, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
     LspDiagnosticsDefaultHint            { bg=teal, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
 
-    LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
+    --[[ LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
     LspDiagnosticsVirtualTextWarning     { LspWarning }, -- Used for "Warning" diagnostic virtual text
     LspDiagnosticsVirtualTextInformation { LspInfo }, -- Used for "Information" diagnostic virtual text
-    LspDiagnosticsVirtualTextHint        { LspHint }, -- Used for "Hint" diagnostic virtual text
+    LspDiagnosticsVirtualTextHint        { LspHint }, -- Used for "Hint" diagnostic virtual text ]]
 
     --[[ LspDiagnosticsUnderlineError         { Error }, -- Used to underline "Error" diagnostics
     LspDiagnosticsUnderlineWarning       { sp=orange, gui=styles.curly }, -- Used to underline "Warning" diagnostics
