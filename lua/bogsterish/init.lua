@@ -52,18 +52,18 @@ local theme = lush(function()
     CursorColumn { bg=base1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg=base1 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg=light_blue, gui=styles.bold }, -- directory names (and other special names in listings)
-    DiffAdd      { bg=base0, fg=green }, -- diff mode: Added line |diff.txt|
-    DiffChange   { bg=base0, fg=yellow}, -- diff mode: Changed line |diff.txt|
-    DiffDelete   { bg=base0, fg=light_red }, -- diff mode: Deleted line |diff.txt|
+    DiffAdd      { fg=green }, -- diff mode: Added line |diff.txt|
+    DiffChange   { fg=yellow}, -- diff mode: Changed line |diff.txt|
+    DiffDelete   { fg=light_red }, -- diff mode: Deleted line |diff.txt|
     DiffText     { fg=fg0 }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { fg=base0 }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { gui="inverse" }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
     ErrorMsg     { bg=base1, fg=light_red, gui=styles.bold }, -- error messages on the command line
-    VertSplit    { fg=base1, bg=base1 }, -- the column separating vertically split windows
+    VertSplit    { fg=base1, bg=base0 }, -- the column separating vertically split windows
     Folded       { fg=fg0, bg=base1 }, -- line used for closed folds
     FoldColumn   { fg=fg0, bg=base1 }, -- 'foldcolumn'
-    SignColumn   { bg=base0 }, -- column where |signs| are displayed
+    SignColumn   { }, -- column where |signs| are displayed
     IncSearch    { fg=base0, bg=fg1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute   { IncSearch }, -- |:substitute| replacement text highlighting
     LineNr       { fg=base3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -90,7 +90,7 @@ local theme = lush(function()
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare    { sp=purple, gui=styles.curly }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine   { fg=fg0, bg=base1 }, -- status line of current window
-    StatusLineNC { fg=base3, bg=base1 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLineNC { fg=base4, bg=base1 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine      { StatusLineNC }, -- tab pages line, not active tab page label
     TabLineFill  { StatusLineNC }, -- tab pages line, where there are no labels
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
@@ -147,7 +147,7 @@ local theme = lush(function()
     -- Error          { sp=red, gui=styles.curly .. ',' .. styles.bold }, -- (preferred) any erroneous construct
     Error          { sp=red, gui=styles.curly }, -- (preferred) any erroneous construct
 
-    Todo           { fg=fg0, bg=base0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo           { fg=fg0, gui=styles.bold}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     LspError    {fg=red},
     LspWarning  {fg=orange},
@@ -158,10 +158,10 @@ local theme = lush(function()
     LspReferenceRead                     { fg=fg0 }, -- used for highlighting "read" references
     LspReferenceWrite                    { fg=fg0 }, -- used for highlighting "write" references
 
-    LspDiagnosticsDefaultError           { bg=red, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    LspDiagnosticsDefaultWarning         { bg=orange, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    LspDiagnosticsDefaultInformation     { bg=light_blue, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    LspDiagnosticsDefaultHint            { bg=teal, fg=base0 }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    LspDiagnosticsDefaultError           { fg=red }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    LspDiagnosticsDefaultWarning         { fg=orange }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    LspDiagnosticsDefaultInformation     { fg=light_blue }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    LspDiagnosticsDefaultHint            { fg=teal }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
 
     LspDiagnosticsVirtualTextError       { LspError }, -- Used for "Error" diagnostic virtual text
     LspDiagnosticsVirtualTextWarning     { LspWarning }, -- Used for "Warning" diagnostic virtual text
@@ -242,7 +242,7 @@ local theme = lush(function()
     TelescopeSelectionCaret     {fg=base5};
     TelescopeSelection          {bg=base1, fg=fg1};
     TelescopeMatching           {fg=red};
-    TelescopeNormal             {fg=base5, bg=base0};
+    TelescopeNormal             {fg=base5};
     TelescopeMultiSelection     {fg=base5}
 
   }
@@ -251,3 +251,4 @@ end)
 return theme
 
 -- vi:nowrap
+
