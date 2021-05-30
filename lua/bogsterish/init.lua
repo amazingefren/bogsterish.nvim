@@ -38,7 +38,7 @@ local styles={
     italic="italic",
     standout="standout",
     nocombine="nocombine",
-    none="NONE"
+    none=""
 }
 
 local theme = lush(function()
@@ -46,7 +46,7 @@ local theme = lush(function()
     Comment      { fg=base5 }, -- any comment
     ColorColumn  { bg=base2}, -- used for the columns set with 'colorcolumn'
     Conceal      { fg=blue }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor       { fg=light_blue, gui=styles.inverse }, -- character under the cursor
+    Cursor       { fg=styles.none, bg=light_blue, gui=styles.reverse }, -- character under the cursor
     lCursor      { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM     { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg=base1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -64,7 +64,7 @@ local theme = lush(function()
     Folded       { fg=fg0, bg=base1 }, -- line used for closed folds
     FoldColumn   { fg=fg0, bg=base1 }, -- 'foldcolumn'
     SignColumn   { }, -- column where |signs| are displayed
-    IncSearch    { fg=base0, bg=fg1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    IncSearch    { fg=base0, bg=orange }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute   { IncSearch }, -- |:substitute| replacement text highlighting
     LineNr       { fg=base3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg=yellow}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -83,7 +83,7 @@ local theme = lush(function()
     PmenuThumb   { bg=base2 }, -- Popup menu: Thumb of the scrollbar.
     Question     { fg=fg0, gui=styles.bold }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine { fg=base0, bg=yellow, gui=styles.bold }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search       { fg=base0, bg=fg1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search       { fg=base0, bg=blue }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SpecialKey   { fg=base3 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad     { sp=red, gui=styles.curly }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
@@ -96,7 +96,7 @@ local theme = lush(function()
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
     Title        { fg=fg1, gui=styles.bold }, -- titles for output from ":set all", ":autocmd" etc.
     Visual       { bg=base2 }, -- Visual mode selection --- TODO: check for base fg visibility
-    VisualNOS    { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
+    VisualNOS    { bg=base2, gui=styles.curly }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { fg=orange, bg=base1}, -- warning messages
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu     { fg=blue, bg=base1, gui=styles.bold}, -- current match in 'wildmenu' completion
@@ -236,14 +236,15 @@ local theme = lush(function()
     TSURI                { Underlined };    -- Any URI like a link or email.
 
     -- Telescope 
-    TelescopePromptBorder       {fg=blue};
-    TelescopeResultsBorder      {fg=teal};
-    TelescopePreviewBorder      {fg=fg0};
-    TelescopeSelectionCaret     {fg=base5};
+    TelescopePreviewBorder      {fg=base5};
+    TelescopePromptBorder       {TelescopePreviewBorder};
+    TelescopeResultsBorder      {TelescopePreviewBorder};
+    TelescopeSelectionCaret     {TelescopePreviewBorder};
     TelescopeSelection          {bg=base1, fg=fg1};
-    TelescopeMatching           {fg=red};
-    TelescopeNormal             {fg=base5};
-    TelescopeMultiSelection     {fg=base5}
+    TelescopeMatching           {fg=orange};
+    TelescopePromptPrefix       {fg=yellow};
+    TelescopeMultiSelection     {fg=light_blue};
+    TelescopeNormal             {fg=fg1};
 
   }
 end)
@@ -251,4 +252,3 @@ end)
 return theme
 
 -- vi:nowrap
-
