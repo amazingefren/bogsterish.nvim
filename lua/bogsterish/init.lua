@@ -246,6 +246,10 @@ local theme = lush(function()
     TelescopeMultiSelection     {fg=light_blue};
     TelescopeNormal             {fg=fg1};
 
+    -- GitSigns
+    GitSignsAdd     {DiffAdd};
+    GitSignsChange  {DiffChange};
+    GitSignsDelete  {DiffDelete};
   }
 end)
 
