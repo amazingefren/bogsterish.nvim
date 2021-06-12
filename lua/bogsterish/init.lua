@@ -3,6 +3,7 @@ local hsl = lush.hsl
 
 -- Colors
 local base0 = hsl(212, 23, 11)
+local base_extra = hsl(212, 23, 10)
 local base1 = hsl(211, 23, 18)
 local base2 = hsl(211, 23, 25)
 local base3 = hsl(212, 23, 33)
@@ -60,7 +61,7 @@ local theme = lush(function()
     -- TermCursor   { gui="inverse" }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
     ErrorMsg     { bg=base1, fg=light_red, gui=styles.bold }, -- error messages on the command line
-    VertSplit    { fg=base1, bg=base1 }, -- the column separating vertically split windows
+    VertSplit    { fg=blue, bg=base0 }, -- the column separating vertically split windows
     Folded       { fg=fg0, bg=base1 }, -- line used for closed folds
     FoldColumn   { fg=fg0, bg=base1 }, -- 'foldcolumn'
     SignColumn   { }, -- column where |signs| are displayed
@@ -74,8 +75,8 @@ local theme = lush(function()
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg      { ModeMsg }, -- |more-prompt|
     NonText      { fg=base3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       { fg=fg1, bg=base0 }, -- normal text
-    NormalFloat  { fg=fg1, bg=base2 }, -- Normal text in floating windows.
+    Normal       { fg=fg0 }, -- normal text
+    NormalFloat  { fg=fg0, bg=base2 }, -- Normal text in floating windows.
     NormalNC     { Normal }, -- normal text in non-current windows
     Pmenu        { fg=fg3, bg=base1 }, -- Popup menu: normal item.
     PmenuSel     { fg=fg0, bg=base2, gui=styles.bold }, -- Popup menu: selected item.
@@ -89,8 +90,8 @@ local theme = lush(function()
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare    { sp=purple, gui=styles.curly }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    StatusLine   { fg=fg0, bg=base1 }, -- status line of current window
-    StatusLineNC { fg=base4, bg=base1 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLine   { fg=fg0, bg=base0 }, -- status line of current window
+    StatusLineNC { fg=base4, bg=base_extra }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine      { StatusLineNC }, -- tab pages line, not active tab page label
     TabLineFill  { StatusLineNC }, -- tab pages line, where there are no labels
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
@@ -108,7 +109,7 @@ local theme = lush(function()
     Boolean        { Constant }, --  a boolean constant: TRUE, false
     Float          { Number }, --    a floating point constant: 2.3e10
 
-    Identifier     { fg=fg1 }, -- (preferred) any variable name
+    Identifier     { fg=purple}, -- (preferred) any variable name
     Function       { fg=light_blue }, -- function name (also: methods for classes)
 
     Statement      { fg=orange }, -- (preferred) any statement
@@ -209,7 +210,7 @@ local theme = lush(function()
     TSNone               { };    -- TODO: docs
     TSNumber             { Number };    -- For all numbers
     TSOperator           { Operator };    -- For any operator: `+`, but also `->` and `*` in C.
-    TSParameter          { Identifier };    -- For parameters of a function.
+    TSParameter          { fg=fg1 };    -- For parameters of a function.
     TSParameterReference { TSParameter };    -- For references to parameters of a function.
     TSProperty           { TSField };    -- Same as `TSField`.
     TSPunctDelimiter     { Delimiter };    -- For delimiters ie: `.`
@@ -250,9 +251,24 @@ local theme = lush(function()
     GitSignsAdd     {DiffAdd};
     GitSignsChange  {DiffChange};
     GitSignsDelete  {DiffDelete};
+
+    -- NvimTree
+    NvimTreeGitIgnored {fg=base3, gui=styles.italic};
+    NvimTreeSymlink {fg=purple, gui=styles.bold};
+    NvimTreeFolderIcon {fg=teal};
+    NvimTreeFolderName {fg=blue, gui=styles.bold};
+    NvimTreeRootFolder {fg=yellow, gui=styles.bold};
+    NvimTreeEmptyFolderName {NvimTreeFolderName};
+    NvimTreeOpenedFolderName {fg=orange, gui=styles.bold};
+    NvimTreeIndentMarker {fg=base2};
+    NvimTreeNormal {fg=fg0,bg=base_extra};
+    NvimTreeGitDirty {fg=yellow};
+    
+    
   }
 end)
 
 return theme
 
 -- vi:nowrap
+
