@@ -120,7 +120,7 @@ local theme = lush(function()
     Keyword        { fg=yellow }, --  any other keyword
     Exception      { Statement }, --  try, catch, throw
 
-    PreProc        { fg=fg0 }, -- (preferred) generic Preprocessor
+    PreProc        { fg=fg1 }, -- (preferred) generic Preprocessor
     Include        { Statement }, --  preprocessor #include
     Define         { PreProc }, --   preprocessor #define
     Macro          { PreProc }, --    same as Define
