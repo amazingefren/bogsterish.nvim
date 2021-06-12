@@ -3,7 +3,7 @@ local hsl = lush.hsl
 
 -- Colors
 local base0 = hsl(212, 23, 11)
-local base_extra = hsl(212, 23, 9)
+local base_extra = hsl(212, 23, 10)
 local base1 = hsl(211, 23, 18)
 local base2 = hsl(211, 23, 25)
 local base3 = hsl(212, 23, 33)
@@ -61,7 +61,7 @@ local theme = lush(function()
     -- TermCursor   { gui="inverse" }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
     ErrorMsg     { bg=base1, fg=light_red, gui=styles.bold }, -- error messages on the command line
-    VertSplit    { fg=base1, bg=base1 }, -- the column separating vertically split windows
+    VertSplit    { fg=blue, bg=base0 }, -- the column separating vertically split windows
     Folded       { fg=fg0, bg=base1 }, -- line used for closed folds
     FoldColumn   { fg=fg0, bg=base1 }, -- 'foldcolumn'
     SignColumn   { }, -- column where |signs| are displayed
@@ -90,8 +90,8 @@ local theme = lush(function()
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare    { sp=purple, gui=styles.curly }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    StatusLine   { fg=fg0, bg=base1 }, -- status line of current window
-    StatusLineNC { fg=base4, bg=base1 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLine   { fg=fg0, bg=base0 }, -- status line of current window
+    StatusLineNC { fg=base4, bg=base_extra }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine      { StatusLineNC }, -- tab pages line, not active tab page label
     TabLineFill  { StatusLineNC }, -- tab pages line, where there are no labels
     TabLineSel   { StatusLine }, -- tab pages line, active tab page label
@@ -262,6 +262,7 @@ local theme = lush(function()
     NvimTreeOpenedFolderName {fg=orange, gui=styles.bold};
     NvimTreeIndentMarker {fg=base2};
     NvimTreeNormal {fg=fg0,bg=base_extra};
+    NvimTreeGitDirty {fg=yellow};
     
     
   }
