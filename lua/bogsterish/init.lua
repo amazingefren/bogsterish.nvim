@@ -263,8 +263,9 @@ local theme = lush(function()
     NvimTreeIndentMarker {fg=base2};
     NvimTreeNormal {fg=fg0,bg=base_extra};
     NvimTreeGitDirty {fg=yellow};
-    
-    
+
+    -- LSPSaga (WIP)
+    TargetWord {fg=teal, gui="none"};
   }
 end)
 
